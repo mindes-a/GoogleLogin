@@ -129,7 +129,8 @@ document.addEventListener('keyup', keyup_ivent);
 
 function keypress_ivent(e) {
   if(e.key == "Enter"){
-     if(count == 0){
+     window.setTimeout(function(){
+      if(count == 0){
       count++;
       let id = document.getElementById("input").value="";
       document.getElementById("menu").innerHTML="パスワードを入力";
@@ -138,6 +139,7 @@ function keypress_ivent(e) {
         alert("このサイトは偽サイトです。パスワードはとっておりません。")
         location.href="https://www.google.com"
       }
+    }, 500);
   }
   return false; 
 }
