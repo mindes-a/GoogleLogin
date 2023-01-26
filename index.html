@@ -9,45 +9,51 @@
 
   <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" class="google">
   <h1 class="title" id="title">ログイン</h1>
-  <h2 class="subtitle" id="subtitle">YouTubeに移動する</h2>
+  <h1 class="subtitle" id="subtitle">お客様の Google アカウントを使用</h1>
    <label>
    <h4 id="menu">メールアドレスまたは電話番号</h4>
       </label>
+      <label>
      <input type="email
      " class="email" id="input">
-     <label>
-     	<p>
+     </lavel>
+     <h4 class="chui" id="subtitle">ご自分のパソコンでない場合は、プライベート ウィンドウを使用してログインしてください。 <a href="https://support.google.com/accounts/answer/2917834?visit_id=638103346143907941-638236136&p=signin_privatebrowsing&hl=ja&rd=1" class="link">詳細</a></h4>
+      <p>
      <button class="btn" id="btn">次へ</button>
      </p>
-     </label>
+
 
   </div>
+
   </center>
-  <style type="text/css">
-	  * {
-  font-famly:sans-seif;
-}
-  	.google{
-padding-top: 40px;
-  height: 40px;
+
+ <style type="text/css">
+    .google{
+  height:17%;
 }
 .conteiner{
-　margin-top: margin-top: 7%;;
+  margin-top: 6%;
   height: 380px;
-  border: 0.8px solid #bfbfbf;
 
-  width: 400px;
+  width: 80%;
 }
 .title{
-  font-size: 30px;
+  font-size: 390%;
+  font-family: sans-serif;
   color:#424242;
  font-weight:545;
   
 }
 .subtitle{
-  font-size:15px;
+  font-size: 280%;
   color:#424242;
    font-weight:549;
+   font-family: sans-serif;
+}
+.chui{
+  font-size: 206%;
+  color:#424242;
+  padding-top: 5%;
 }
 .email{
   border: none;
@@ -55,47 +61,60 @@ padding-top: 40px;
   outline: none;
   color:#424242;
    font-weight:545;
-   width: 250px;
+   width: 78%;
    height: 20px;
+   font-family: sans-serif;
 }
 h4{
-   font-size:14px;
+   font-size:250%;
   color:#4287f5;
    font-weight:549;
+   font-family: sans-serif;
 }
 .btn{
-	background-color: #4287f5;
-	border-radius: 5px;
-	border:none;
-	height: 38px;
-	width: 68px;
-	color: white;
-	cursor: pointer;
-	margin-top: 20px;
-}
+  background-color: #4287f5;
+  border-radius: 5px;
+  border:none;
+  height: 5vh;
+  width: 28%;
+  color: white;
+  cursor: pointer;
+  margin-top: 6%;
+  font-size: 200%;
+} 
 .help{
-	   font-size:11px;
+     font-size:11px;
   color:#4287f5;
    font-weight:549;
    cursor: pointer;
 }
-
+.footer{
+  position:absolute;
+  bottom:0;
+}
+.link{
+  color: #4287f5;
+  text-decoration: none;
+}
   </style>
   <script type="text/javascript">
-  	const btn = document.getElementById("btn");
-  	let count = 0;
-  	btn.addEventListener("click",function(){
-  		if(count == 0){
-  		count++;
-  		let id = document.getElementById("input").value;
-  		document.getElementById("menu").innerHTML="パスワードを入力";
-  		btn.innerHTML="ログイン";
-  		}else{
-  			alert("このサイトは偽サイトですパスワードを入力したあなた！危なかったですね～	")
-  			location.href="https://www.google.com"
-  			location.href="https://www.google.com"
-  			location.href="https://www.google.com"
-  		}
-  	})
+    function aaa(){
+      alert("a")
+    }
+    const btn = document.getElementById("btn");
+    let count = 0;
+    btn.addEventListener("click",function(){
+ window.setTimeout(function(){
+      if(count == 0){
+      count++;
+      let id = document.getElementById("input").value;
+      document.getElementById("menu").innerHTML="パスワードを入力";
+      btn.innerHTML="ログイン";
+      }else{
+        alert("このサイトは偽サイトです。パスワードはとっておりません。")
+        location.href="https://www.google.com"
+      }
+    }, 500);
+    })
   </script>
 </html>
